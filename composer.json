@@ -1,0 +1,36 @@
+{
+  "name": "makeitlv/lavstore",
+  "description": "Laravel e-commerce package for building online stores with ease.",
+  "keywords": [
+    "laravel",
+    "lavstore",
+    "store",
+    "e-commerce",
+    "cart",
+    "shop"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/makeitlv/lavstore",
+  "authors": [
+    {
+      "name": "Viktors Vipolzovs",
+      "email": "viktors.vipolzovs@makeit.lv"
+    }
+  ],
+  "require": {
+    "php": "^8.3"
+  },
+  "require-dev": {
+    "orchestra/testbench": "^9.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Makeitlv\\Lavstore\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Makeitlv\\Lavstore\\Tests\\": "tests/"
+    }
+  }
+}
