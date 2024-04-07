@@ -6,7 +6,7 @@ namespace Makeitlv\Lavstore\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-class LavstoreServiceProvider extends ServiceProvider
+final class LavstoreServiceProvider extends ServiceProvider
 {
     /**
      * Register any application services.
