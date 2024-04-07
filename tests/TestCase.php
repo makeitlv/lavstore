@@ -11,13 +11,13 @@ use Orchestra\Testbench\TestCase as BaseTestCase;
 abstract class TestCase extends BaseTestCase
 {
     /**
-     * @param Application  $app
+     * @param  Application  $app
      * @return array<int, class-string>
      */
     protected function getPackageProviders($app): array
     {
         return [
-            LavstoreServiceProvider::class
+            LavstoreServiceProvider::class,
         ];
     }
 }
