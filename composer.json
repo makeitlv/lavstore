@@ -25,12 +25,19 @@
   },
   "autoload": {
     "psr-4": {
-      "Makeitlv\\Lavstore\\": "src/"
+      "Makeitlv\\Lavstore\\": "app/"
     }
   },
   "autoload-dev": {
     "psr-4": {
       "Makeitlv\\Lavstore\\Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Makeitlv\\Lavstore\\Providers\\LavstoreServiceProvider"
+      ]
     }
   }
 }
