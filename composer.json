@@ -26,7 +26,8 @@
     "nunomaduro/phpinsights": "^2.11",
     "orchestra/testbench": "^9.0",
     "pestphp/pest": "^2.34",
-    "pestphp/pest-plugin-laravel": "^2.3"
+    "pestphp/pest-plugin-laravel": "^2.3",
+    "phpat/phpat": "^0.10.16"
   },
   "autoload": {
     "psr-4": {
