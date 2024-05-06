@@ -4,14 +4,25 @@ if [ $# -gt 0 ]; then
     if [ "$1" == "php" ]; then
         shift 1
         docker run --rm -u "$(id -u):$(id -g)" -v $(pwd):/var/www/html -w /var/www/html laravelsail/php83-composer:latest php "$@"
+    elif [ "$1" == "artisan" ]; then
+        shift 1
+        docker run --rm -u "$(id -u):$(id -g)" -v $(pwd):/var/www/html -w /var/www/html laravelsail/php83-composer:latest php ./vendor/bin/testbench "$@"
     elif [ "$1" == "composer" ]; then
         shift 1
         docker run --rm -u "$(id -u):$(id -g)" -v $(pwd):/var/www/html -w /var/www/html laravelsail/php83-composer:latest composer "$@"
     elif [ "$1" == "qa" ]; then
         shift 1
-        docker run --rm -u "$(id -u):$(id -g)" -v $(pwd):/var/www/html -w /var/www/html laravelsail/php83-composer:latest php ./vendor/bin/pint --preset psr12 --test
+        echo "Running pint..."
+        docker run --rm -u "$(id -u):$(id -g)" -v $(pwd):/var/www/html -w /var/www/html laravelsail/php83-composer:latest php ./vendor/bin/pint --preset laravel --test
+        echo "Running phpstan..."
         docker run --rm -u "$(id -u):$(id -g)" -v $(pwd):/var/www/html -w /var/www/html laravelsail/php83-composer:latest php ./vendor/bin/phpstan analyse
+        echo "Running phpinsights..."
         docker run --rm -u "$(id -u):$(id -g)" -v $(pwd):/var/www/html -w /var/www/html laravelsail/php83-composer:latest php ./vendor/bin/phpinsights --no-interaction --min-quality=80 --min-complexity=90 --min-architecture=75 --min-style=95
+    elif [ "$1" == "fix" ]; then
+        shift 1
+        echo "Running code style fix..."
+        docker run --rm -u "$(id -u):$(id -g)" -v $(pwd):/var/www/html -w /var/www/html laravelsail/php83-composer:latest php ./vendor/bin/pint --preset laravel
+        docker run --rm -u "$(id -u):$(id -g)" -v $(pwd):/var/www/html -w /var/www/html laravelsail/php83-composer:latest php ./vendor/bin/phpinsights --fix
     elif [ "$1" == "test" ]; then
         shift 1
         docker run --rm -u "$(id -u):$(id -g)" -v $(pwd):/var/www/html -w /var/www/html laravelsail/php83-composer:latest php ./vendor/bin/pest "$@"
