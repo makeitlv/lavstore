@@ -3,7 +3,8 @@
 declare(strict_types=1);
 
 use Illuminate\Support\Facades\Route;
+use Makeitlv\Lavstore\Module\Product\Infrastructure\Controller\MainController;
 
-Route::get('/lavstore/', static function () {
-    return 'Hello World';
+Route::prefix(config('lavstore.url.prefix'))->group(function () {
+    Route::get('/', [MainController::class, 'index']);
 });
