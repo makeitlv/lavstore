@@ -34,7 +34,7 @@ jobs:
         run: composer install --no-interaction --prefer-dist --optimize-autoloader --no-progress --no-suggest
 
       - name: Run Code Style Check
-        run: ./vendor/bin/pint --preset psr12 --test
+        run: ./vendor/bin/pint --preset laravel --test
 
       - name: Run Static Analysis Check
         run: ./vendor/bin/phpstan analyse
