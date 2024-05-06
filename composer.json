@@ -31,7 +31,8 @@
   },
   "autoload": {
     "psr-4": {
-      "Makeitlv\\Lavstore\\": "app/"
+      "Makeitlv\\Lavstore\\": "app/",
+      "Makeitlv\\Lavstore\\Module\\": "src/"
     }
   },
   "autoload-dev": {
